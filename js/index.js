@@ -8,7 +8,7 @@ $(function() {
     function debounceSearch(kw) {
         timer = setTimeout(function() {
             getSuggestList(kw)
-        }, 500)
+        }, 200)
     }
 
     // 为输入框绑定 keyup 事件
@@ -17,6 +17,7 @@ $(function() {
             clearTimeout(timer)
             var keywords = $(this).val().trim()
             if (keywords.length <= 0) {
+                $('.search-box').css("border-radius", "17px")
                 return $('#suggest-list').empty().hide()
             }
             if (e.keyCode === 13) {
@@ -72,10 +73,11 @@ $(function() {
         if (res.g.length <= 0) {
             return $('#suggest-list').empty().hide()
         }
-        var htmlStr = template('tpl-suggestList', res)
-        $('#suggest-list').html(htmlStr).show()
 
-        // 1. 获取到用户输入的内容，当做键
+        var htmlStr = template('tpl-suggestList', res)
+        $('#suggest-list').html(htmlStr).slideDown(100)
+        $('.search-box').css("border-radius", "17px 17px 0 0")
+            // 1. 获取到用户输入的内容，当做键
         var k = $('#ipt').val().trim()
             // 2. 需要将数据作为值，进行缓存
         cacheObj[k] = res
@@ -99,6 +101,7 @@ $(function() {
     $('#ipt').on('blur', function() {
         setTimeout(function() {
             $('#ipt').css('width', '34px')
+            $('.search-box').css("border-radius", "17px")
             $('#ipt').val('')
             $('#suggest-list').empty().hide()
         }, 200)

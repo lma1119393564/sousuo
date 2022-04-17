@@ -48,6 +48,7 @@ body {
     position: relative;
     align-items: center;
     border-radius: 17px;
+    /* border-radius: 17px 17px 0 0; */
     overflow: hidden;
     background-color: rgba(255, 255, 255, .3);
 }
@@ -80,11 +81,12 @@ body {
 
 #suggest-list {
     display: none;
-    width: 490px;
+    width: 500px;
     margin: 0 auto;
     /* margin-top: 5px; */
     border-radius: 0 0 15px 15px;
-    background-color: rgba(255, 255, 255, .3);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, .5);
 }
 
 .suggest-item {
@@ -96,6 +98,6 @@ body {
 
 .suggest-item:hover {
     cursor: pointer;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     background-color: rgba(255, 255, 255, .6);
 }
