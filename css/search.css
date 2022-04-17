@@ -79,6 +79,7 @@ body {
 }
 
 #suggest-list {
+    display: none;
     width: 490px;
     margin: 0 auto;
     /* margin-top: 5px; */
